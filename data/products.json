@@ -1,0 +1,248 @@
+{
+  "products": [
+    {
+      "id": "p_9811e3060227",
+      "name": "视频下载 · 小红书 / B站",
+      "tagline": "粘贴小红书或 B 站视频链接，一键解析下载",
+      "description": "在线视频解析下载工具，支持小红书与 B 站视频链接，粘贴即可获取无水印视频地址。本次作为演示产品收录，分类 DEMO。",
+      "demoUrl": "https://37l9oowp2au0t8y13br.traesite.cn/",
+      "repoUrl": "",
+      "isPrivate": false,
+      "category": "DEMO",
+      "tags": [
+        "演示",
+        "视频下载"
+      ],
+      "tech": [
+        "Web"
+      ],
+      "status": "live",
+      "cover": "",
+      "icon": "",
+      "featured": false,
+      "notes": "",
+      "stars": null,
+      "forks": null,
+      "language": "",
+      "repoPushedAt": "",
+      "createdAt": "2026-11-23T10:24:57.121Z",
+      "updatedAt": "2026-11-23T10:24:57.121Z"
+    },
+    {
+      "id": "p_572522834953",
+      "name": "Excalidraw",
+      "tagline": "手绘风格的协作白板，随手画出架构图",
+      "description": "开源虚拟白板，支持多人实时协作、手绘风格图形与端到端加密分享。常被用于画系统架构图、流程草图与产品原型。",
+      "demoUrl": "https://excalidraw.com",
+      "repoUrl": "https://github.com/excalidraw/excalidraw",
+      "isPrivate": false,
+      "category": "协作工具",
+      "tags": [
+        "白板",
+        "实时协作",
+        "开源"
+      ],
+      "tech": [
+        "TypeScript",
+        "React",
+        "Canvas"
+      ],
+      "status": "live",
+      "cover": "",
+      "icon": "https://excalidraw.com/apple-touch-icon.png",
+      "featured": true,
+      "notes": "支持导出 PNG / SVG，也可嵌入到自己的产品里。",
+      "stars": 136145,
+      "forks": 16256,
+      "language": "TypeScript",
+      "repoPushedAt": "2026-11-22T21:13:19Z",
+      "createdAt": "2026-11-11T03:32:30.376Z",
+      "updatedAt": "2026-11-23T03:32:30.376Z"
+    },
+    {
+      "id": "p_77e528b158d9",
+      "name": "tldraw",
+      "tagline": "可嵌入的无限画布 SDK",
+      "description": "面向开发者的无限画布引擎，提供开箱即用的绘图、便签、图片与协同能力，可作为 SDK 集成进任意 Web 应用。",
+      "demoUrl": "https://tldraw.com",
+      "repoUrl": "https://github.com/tldraw/tldraw",
+      "isPrivate": false,
+      "category": "设计工具",
+      "tags": [
+        "画布",
+        "SDK",
+        "开源"
+      ],
+      "tech": [
+        "TypeScript",
+        "React"
+      ],
+      "status": "live",
+      "cover": "",
+      "icon": "https://www.tldraw.com/favicon.svg",
+      "featured": true,
+      "notes": "",
+      "stars": 51535,
+      "forks": 3614,
+      "language": "TypeScript",
+      "repoPushedAt": "2026-11-20T22:22:05Z",
+      "createdAt": "2026-11-12T03:32:30.376Z",
+      "updatedAt": "2026-11-22T03:32:30.376Z"
+    },
+    {
+      "id": "p_a6e50fdba1e6",
+      "name": "Hoppscotch",
+      "tagline": "打开即用的 API 调试工具",
+      "description": "轻量级 API 开发套件，支持 REST / GraphQL / WebSocket / SSE 调试，无需安装客户端，浏览器打开即可发请求。",
+      "demoUrl": "https://hoppscotch.io",
+      "repoUrl": "https://github.com/hoppscotch/hoppscotch",
+      "isPrivate": false,
+      "category": "开发者工具",
+      "tags": [
+        "API",
+        "调试",
+        "开源"
+      ],
+      "tech": [
+        "Vue",
+        "TypeScript",
+        "PWA"
+      ],
+      "status": "live",
+      "cover": "",
+      "icon": "https://hoppscotch.io/favicon.ico",
+      "featured": false,
+      "notes": "",
+      "stars": 80867,
+      "forks": 6231,
+      "language": "TypeScript",
+      "repoPushedAt": "2026-11-20T13:56:55Z",
+      "createdAt": "2026-11-13T03:32:30.376Z",
+      "updatedAt": "2026-11-21T03:32:30.376Z"
+    },
+    {
+      "id": "p_b94a5bacc151",
+      "name": "Cal.com",
+      "tagline": "开源的日程预约基础设施",
+      "description": "可自托管的日程调度平台，支持团队轮询、多时区、日历同步与嵌入组件，常被当作 Calendly 的开源替代。",
+      "demoUrl": "https://cal.com",
+      "repoUrl": "https://github.com/calcom/cal.com",
+      "isPrivate": false,
+      "category": "效率办公",
+      "tags": [
+        "日程",
+        "SaaS",
+        "可自托管"
+      ],
+      "tech": [
+        "Next.js",
+        "Prisma",
+        "PostgreSQL"
+      ],
+      "status": "live",
+      "cover": "",
+      "icon": "https://cal.com/favicon.ico?favicon.35f88jqwdm24o.ico?dpl=dpl_2JYFuLCzBrsf2WHtiYvxQau4178S",
+      "featured": false,
+      "notes": "",
+      "stars": 50322,
+      "forks": 15728,
+      "language": "TypeScript",
+      "repoPushedAt": "2026-11-13T19:35:07Z",
+      "createdAt": "2026-11-14T03:32:30.376Z",
+      "updatedAt": "2026-11-20T03:32:30.376Z"
+    },
+    {
+      "id": "p_77055fb8011b",
+      "name": "shadcn/ui",
+      "tagline": "复制粘贴即用的组件集合",
+      "description": "不是组件库，而是可复制的组件源码集合。基于 Radix UI 与 Tailwind CSS，样式与行为完全掌握在使用者手里。",
+      "demoUrl": "https://ui.shadcn.com",
+      "repoUrl": "https://github.com/shadcn-ui/ui",
+      "isPrivate": false,
+      "category": "设计系统",
+      "tags": [
+        "组件",
+        "Tailwind",
+        "设计"
+      ],
+      "tech": [
+        "React",
+        "Tailwind CSS",
+        "Radix"
+      ],
+      "status": "live",
+      "cover": "",
+      "icon": "https://ui.shadcn.com/favicon-16x16.png",
+      "featured": true,
+      "notes": "",
+      "stars": 128781,
+      "forks": 11436,
+      "language": "TypeScript",
+      "repoPushedAt": "2026-11-21T13:43:06Z",
+      "createdAt": "2026-11-15T03:32:30.376Z",
+      "updatedAt": "2026-11-19T03:32:30.376Z"
+    },
+    {
+      "id": "p_3da4f3baf31e",
+      "name": "Open WebUI",
+      "tagline": "自托管的 AI 对话工作台",
+      "description": "可完全离线运行的 LLM 交互界面，兼容 Ollama 与 OpenAI API，支持知识库、模型切换、多用户与插件扩展。",
+      "demoUrl": "https://openwebui.com",
+      "repoUrl": "https://github.com/open-webui/open-webui",
+      "isPrivate": false,
+      "category": "AI 应用",
+      "tags": [
+        "LLM",
+        "自托管",
+        "RAG"
+      ],
+      "tech": [
+        "Python",
+        "Svelte",
+        "FastAPI"
+      ],
+      "status": "beta",
+      "cover": "",
+      "icon": "https://openwebui.com/favicon.png",
+      "featured": false,
+      "notes": "本地部署需先启动 Ollama，默认端口 3000。",
+      "stars": 159294,
+      "forks": 23109,
+      "language": "Svelte",
+      "repoPushedAt": "2026-11-22T23:30:00Z",
+      "createdAt": "2026-11-16T03:32:30.376Z",
+      "updatedAt": "2026-11-18T03:32:30.376Z"
+    },
+    {
+      "id": "p_7fdc8afc8f5c",
+      "name": "Supabase",
+      "tagline": "开源的 Firebase 替代方案",
+      "description": "基于 PostgreSQL 的后端即服务，提供数据库、认证、存储、实时订阅与边缘函数，控制台体验相当完整。",
+      "demoUrl": "https://supabase.com",
+      "repoUrl": "https://github.com/supabase/supabase",
+      "isPrivate": false,
+      "category": "后端服务",
+      "tags": [
+        "PostgreSQL",
+        "BaaS",
+        "开源"
+      ],
+      "tech": [
+        "TypeScript",
+        "Go",
+        "PostgreSQL"
+      ],
+      "status": "live",
+      "cover": "",
+      "icon": "https://supabase.com/favicon/favicon.ico",
+      "featured": false,
+      "notes": "",
+      "stars": 115354,
+      "forks": 15155,
+      "language": "TypeScript",
+      "repoPushedAt": "2026-11-23T01:53:53Z",
+      "createdAt": "2026-11-17T03:32:30.376Z",
+      "updatedAt": "2026-11-17T03:32:30.376Z"
+    }
+  ]
+}

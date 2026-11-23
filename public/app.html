@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>产品库 · Atlas</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%237C5CFF'/%3E%3Cpath d='M8 11l8-4 8 4v10l-8 4-8-4V11z' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+
+<div class="app-shell">
+  <!-- 侧栏 -->
+  <aside class="sidebar">
+    <a class="sb-brand" href="/">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5v-9Z"/><path d="M12 12l8-4.5M12 12v9M12 12 4 7.5"/></svg></span>
+      <span class="sb-brand-text">Atlas<span>产品管理器</span></span>
+    </a>
+
+    <div class="sb-section" style="padding-top:4px">产品库</div>
+    <nav class="sb-nav">
+      <button class="sb-item active" data-filter="all">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/><path d="m3 8 9 5 9-5M12 21v-8"/></svg>
+        全部产品<span class="sb-count" id="c-all">0</span>
+      </button>
+      <button class="sb-item" data-filter="featured">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="m12 3 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20.9l1.1-6.5L2.6 9.8l6.5-.9L12 3Z"/></svg>
+        精选<span class="sb-count" id="c-featured">0</span>
+      </button>
+      <button class="sb-item" data-filter="live">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2c.9-.9.9-2.4 0-3.3a2.3 2.3 0 0 0-3 .3Z"/><path d="M14.5 4.5C17 2 21 2 21 2s0 4-2.5 6.5L13 14l-3-3 4.5-6.5Z"/></svg>
+        已上线<span class="sb-count" id="c-live">0</span>
+      </button>
+    </nav>
+
+    <div class="sb-section">分类</div>
+    <div class="sb-cats" id="sb-cats"></div>
+
+    <div class="sb-foot">
+      <button class="sb-item" id="btn-settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.6 1.6 0 0 0-1-1.5 1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.6 1.6 0 0 0 1.5-1 1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1Z"/></svg>
+        设置与 Token
+      </button>
+      <a class="sb-item" href="/api/export" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M4 21h16"/></svg>
+        导出数据
+      </a>
+      <a class="sb-item" href="/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/></svg>
+        返回首页
+      </a>
+    </div>
+  </aside>
+
+  <!-- 主区 -->
+  <div class="app-main">
+    <header class="app-top">
+      <button class="btn-icon menu-btn" id="btn-menu" aria-label="打开菜单">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <a href="/" class="brand-mark mobile-only-logo" id="mobile-logo" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round" style="width:15px;height:15px"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5v-9Z"/></svg></a>
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input class="input" id="search" placeholder="搜索产品、标签或技术栈…" autocomplete="off" />
+        <span class="kbd">⌘K</span>
+      </div>
+      <div class="app-top-right">
+        <a class="btn-icon" href="https://github.com/goldencalf520/AtlasProduct" target="_blank" rel="noopener" title="GitHub 仓库" aria-label="GitHub 仓库">
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        </a>
+        <button class="btn-icon" id="btn-settings-2" title="设置">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.6 1.6 0 0 0-1-1.5 1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.6 1.6 0 0 0 1.5-1 1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1Z"/></svg>
+        </button>
+        <button class="btn btn-primary btn-sm" id="btn-add">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          添加产品
+        </button>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title" id="page-title">全部产品 <span class="num" id="count-num">0</span></h1>
+          <p class="page-sub" id="page-sub">收录你的网站项目、工具与实验作品</p>
+          <p class="env-note" id="env-note" hidden>演示环境：数据暂存在临时目录，服务重启后恢复初始示例</p>
+        </div>
+        <div class="toolbar">
+          <select class="select" id="sort">
+            <option value="updated">最近更新</option>
+            <option value="created">最新添加</option>
+            <option value="stars">Star 最多</option>
+            <option value="name">名称 A→Z</option>
+          </select>
+          <div class="view-switch" id="view-switch">
+            <button data-view="grid" class="active" title="卡片视图">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+            </button>
+            <button data-view="list" title="列表视图">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg>
+            </button>
+            <button data-view="table" title="表格视图">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-bar" id="filter-bar"></div>
+      <div id="view"></div>
+    </div>
+  </div>
+</div>
+
+<!-- 移动端抽屉遮罩 -->
+<div class="drawer-mask" id="drawer-mask"></div>
+
+<!-- 添加 / 编辑弹窗 -->
+<div class="modal-mask" id="modal-mask">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <div>
+        <h3 id="modal-title">添加产品</h3>
+        <p id="modal-sub">粘贴链接，其余信息可以自动抓取</p>
+      </div>
+      <button class="btn-icon" data-close="modal" aria-label="关闭">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <form class="modal-body" id="product-form" novalidate>
+      <input type="hidden" id="f-id" />
+
+      <div class="field">
+        <label class="label" for="f-demo">部署链接 <span class="req">*</span></label>
+        <div class="url-row">
+          <input class="input" id="f-demo" placeholder="https://your-app.vercel.app" autocomplete="off" />
+          <button type="button" class="btn" id="btn-fetch" style="flex:none">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M4.2 7.2l2.1 2.1M17.7 14.7l2.1 2.1M3 12h3M18 12h3M4.2 16.8l2.1-2.1M17.7 9.3l2.1-2.1"/></svg>
+            自动抓取
+          </button>
+        </div>
+        <div class="fetch-state" id="fetch-state">填好后点击「自动抓取」，读取站点标题、简介与图标</div>
+      </div>
+
+      <div class="form-grid">
+        <div class="field">
+          <label class="label" for="f-name">产品名称 <span class="req">*</span></label>
+          <input class="input" id="f-name" placeholder="例如：FlowNote" maxlength="60" />
+        </div>
+        <div class="field">
+          <label class="label" for="f-category">分类</label>
+          <input class="input" id="f-category" list="cat-list" placeholder="例如：AI 应用" maxlength="30" />
+          <datalist id="cat-list"></datalist>
+        </div>
+        <div class="field full">
+          <label class="label" for="f-tagline">一句话简介</label>
+          <input class="input" id="f-tagline" placeholder="一句话说清楚它解决什么问题" maxlength="120" />
+        </div>
+        <div class="field full">
+          <label class="label" for="f-desc">详细描述</label>
+          <textarea class="textarea" id="f-desc" placeholder="功能、使用场景、实现思路…" maxlength="2000"></textarea>
+        </div>
+
+        <div class="field full">
+          <label class="label" for="f-repo">GitHub 仓库</label>
+          <div class="url-row">
+            <input class="input" id="f-repo" placeholder="https://github.com/owner/repo" autocomplete="off" />
+            <button type="button" class="btn" id="btn-gh" style="flex:none">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4 1.5-4-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+              同步仓库
+            </button>
+          </div>
+          <div class="fetch-state" id="gh-state">公开仓库可直接同步 Star、语言与最近提交</div>
+        </div>
+
+        <div class="field full">
+          <label class="switch">
+            <input type="checkbox" id="f-private" />
+            <span class="track"></span>
+            <span class="switch-label">这是私有仓库</span>
+          </label>
+          <div class="private-note" id="private-note" style="display:none">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+            <div>私有仓库需要在「设置与 Token」中配置一个 GitHub 个人访问令牌（勾选 <code>repo</code> 权限），否则无法读取仓库信息。未配置时也可以先保存，之后随时补充。</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label" for="f-status">状态</label>
+          <select class="select" id="f-status">
+            <option value="live">已上线</option>
+            <option value="beta">内测中</option>
+            <option value="building">开发中</option>
+            <option value="archived">已归档</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="label" for="f-cover">封面图地址（可选）</label>
+          <input class="input" id="f-cover" placeholder="留空则使用渐变封面" />
+        </div>
+
+        <div class="field">
+          <label class="label">标签</label>
+          <div class="tag-input" id="tag-input">
+            <input placeholder="输入后回车添加" />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="f-tech">技术栈</label>
+          <input class="input" id="f-tech" placeholder="用逗号分隔，如 React, Node" />
+        </div>
+
+        <div class="field full">
+          <label class="label" for="f-notes">备注</label>
+          <textarea class="textarea" id="f-notes" style="min-height:70px" placeholder="部署方式、账号密码、待办事项…" maxlength="2000"></textarea>
+        </div>
+
+        <div class="field full">
+          <label class="switch">
+            <input type="checkbox" id="f-featured" />
+            <span class="track"></span>
+            <span class="switch-label">标记为精选，在列表中优先展示</span>
+          </label>
+        </div>
+      </div>
+    </form>
+
+    <div class="modal-foot">
+      <button class="btn btn-danger btn-sm" id="btn-delete" style="display:none">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2M19 6l-1 14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1L5 6"/></svg>
+        删除
+      </button>
+      <div class="spacer"></div>
+      <button class="btn btn-sm" type="button" data-close="modal">取消</button>
+      <button class="btn btn-primary btn-sm" id="btn-save" type="submit" form="product-form">保存产品</button>
+    </div>
+  </div>
+</div>
+
+<!-- 设置弹窗 -->
+<div class="modal-mask" id="settings-mask">
+  <div class="modal" style="width:min(520px,100%)" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <div>
+        <h3>设置</h3>
+        <p>仓库访问与数据管理</p>
+      </div>
+      <button class="btn-icon" data-close="settings" aria-label="关闭">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label class="label" for="f-token">GitHub 个人访问令牌</label>
+        <input class="input" id="f-token" type="password" placeholder="ghp_… 或 github_pat_…" autocomplete="off" />
+        <div class="hint">
+          仅保存在本机浏览器 localStorage，只在请求 GitHub 时通过请求头发送，不会写入数据文件。
+          需要读取私有仓库时，请勾选 <code class="mono">repo</code> 权限；只读公开数据可不填。
+        </div>
+      </div>
+      <div class="private-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+        <div>未配置 Token 时 GitHub 匿名接口每小时限 60 次请求；配置后按令牌额度计算。也可以在服务端设置环境变量 <code>GITHUB_TOKEN</code> 作为全局默认。</div>
+      </div>
+      <div class="field">
+        <label class="label">数据</label>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <a class="btn btn-sm" href="/api/export" download>导出 JSON</a>
+          <button class="btn btn-sm" type="button" id="btn-clear-token">清除 Token</button>
+        </div>
+        <div class="hint">数据文件位于服务端 <code class="mono">data/products.json</code>，可直接备份或纳入 Git 管理。</div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <div class="spacer"></div>
+      <button class="btn btn-sm" type="button" data-close="settings">取消</button>
+      <button class="btn btn-primary btn-sm" type="button" id="btn-save-token">保存设置</button>
+    </div>
+  </div>
+</div>
+
+<!-- 确认弹窗 -->
+<div class="modal-mask" id="confirm-mask" style="align-items:center">
+  <div class="modal" style="width:min(400px,100%)" role="alertdialog" aria-modal="true">
+    <div class="modal-head">
+      <div><h3 id="confirm-title">确认删除</h3><p id="confirm-desc">删除后无法恢复</p></div>
+    </div>
+    <div class="modal-foot">
+      <div class="spacer"></div>
+      <button class="btn btn-sm" type="button" data-close="confirm">取消</button>
+      <button class="btn btn-sm btn-danger" type="button" id="confirm-ok">删除</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/core.js"></script>
+<script src="/assets/library.js"></script>
+</body>
+</html>

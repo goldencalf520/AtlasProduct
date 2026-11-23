@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Atlas · 产品管理器 — 把每一个作品收进一个产品库</title>
+<meta name="description" content="Atlas 产品管理器：粘贴部署链接与 GitHub 仓库，自动抓取站点信息与仓库数据，用卡片、列表、表格三种视图管理你的所有作品。" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Atlas · 产品管理器 — 把每一个作品收进一个产品库" />
+<meta property="og:description" content="粘贴部署链接与 GitHub 仓库，自动抓取标题、图标与仓库数据。三种视图自由切换，随时检索、随时展示。" />
+<meta name="theme-color" content="#08080b" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%237C5CFF'/%3E%3Cpath d='M8 11l8-4 8 4v10l-8 4-8-4V11z' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+
+<!-- 导航 -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5v-9Z"/><path d="M12 12l8-4.5M12 12v9M12 12 4 7.5"/></svg></span>
+      <span class="brand-name">Atlas <em>/ 产品管理器</em></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#features">功能</a>
+      <a href="#flow">使用方式</a>
+      <a href="#recent">最近收录</a>
+      <a href="/app.html">产品库</a>
+    </nav>
+    <div class="nav-right">
+      <a class="btn-icon" href="https://github.com/goldencalf520/AtlasProduct" target="_blank" rel="noopener" title="GitHub 仓库" aria-label="GitHub 仓库">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      </a>
+      <a class="btn btn-sm btn-ghost" href="/app.html?new=1">添加产品</a>
+      <a class="btn btn-sm btn-primary" href="/app.html">打开产品库</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero-wrap">
+    <div class="aurora"></div>
+    <div class="grid-lines"></div>
+    <div class="container hero">
+      <div class="hero-copy">
+        <div class="eyebrow">
+          <span class="pulse"></span>
+          <b>产品库运行中</b>
+          <span class="sep"></span>
+          <span id="eyebrow-count">正在读取…</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="line">把散落的作品，</span>
+          <span class="line">收进一个 <span class="serif">产品库</span></span>
+        </h1>
+        <p class="hero-sub">
+          粘贴<strong>部署链接</strong>与 <strong>GitHub 仓库</strong>，自动抓取标题、图标与仓库数据。
+          卡片、列表、表格三种视图自由切换，随时检索、随时展示。
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" href="/app.html">
+            进入产品库
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-lg" href="/app.html?new=1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            添加第一个产品
+          </a>
+        </div>
+        <div class="hero-meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>无需数据库，单文件存储</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>私有仓库支持个人 Token</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>一键导出 JSON</span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="glow"></div>
+        <div class="float-card fc-1">
+          <span class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4 1.5-4-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></span>
+          <div><b>仓库已同步</b><small>★ 12.4k · TypeScript</small></div>
+        </div>
+        <div class="float-card fc-2">
+          <span class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <div><b id="fc-live">全部产品已上线</b><small>最近更新 2 小时前</small></div>
+        </div>
+
+        <div class="mock">
+          <div class="mock-bar">
+            <div class="mock-dots"><i></i><i></i><i></i></div>
+            <div class="mock-url">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+              atlas.local / library
+            </div>
+          </div>
+          <div class="mock-body">
+            <div class="mock-head">
+              <span class="mock-title">全部产品 · 7</span>
+              <div class="mock-tabs"><i></i><i></i><i></i></div>
+            </div>
+            <div class="mock-grid">
+              <div class="mini">
+                <div class="mini-cover mini-b1"></div>
+                <div class="mini-body"><div class="mini-line"></div><div class="mini-line w60"></div><div class="mini-foot"><i></i><i></i></div></div>
+              </div>
+              <div class="mini">
+                <div class="mini-cover mini-b2"></div>
+                <div class="mini-body"><div class="mini-line"></div><div class="mini-line w60"></div><div class="mini-foot"><i></i><i></i></div></div>
+              </div>
+              <div class="mini">
+                <div class="mini-cover mini-b3"></div>
+                <div class="mini-body"><div class="mini-line"></div><div class="mini-line w60"></div><div class="mini-foot"><i></i><i></i></div></div>
+              </div>
+              <div class="mini">
+                <div class="mini-cover mini-b4"></div>
+                <div class="mini-body"><div class="mini-line"></div><div class="mini-line w60"></div><div class="mini-foot"><i></i><i></i></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 数据条 -->
+  <div class="container reveal">
+    <div class="stats-band">
+      <div class="stat"><div class="stat-num" data-stat="total">—</div><div class="stat-label">收录产品</div></div>
+      <div class="stat"><div class="stat-num" data-stat="live">—</div><div class="stat-label">已上线项目</div></div>
+      <div class="stat"><div class="stat-num" data-stat="categories">—</div><div class="stat-label">产品分类</div></div>
+      <div class="stat"><div class="stat-num" data-stat="stars">—</div><div class="stat-label">GitHub Stars 合计</div></div>
+    </div>
+  </div>
+
+  <!-- 功能 -->
+  <section class="block" id="features">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-tag">Features</div>
+        <h2 class="section-title">录入一次，展示与检索都省心</h2>
+        <p class="section-desc">从「一个链接」到「一个可检索的产品档案」，中间的脏活都交给自动抓取。</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature reveal">
+          <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg></div>
+          <h3>链接即录入</h3>
+          <p>粘贴部署地址，自动读取网页标题、描述、站点图标与主题色，名称和简介不用手敲。</p>
+        </div>
+        <div class="feature reveal">
+          <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4 1.5-4-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></div>
+          <h3>GitHub 联动</h3>
+          <p>自动同步 Star、Fork、主要语言与最近提交时间。私有仓库在设置里填入个人 Token 即可读取。</p>
+        </div>
+        <div class="feature reveal">
+          <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+          <h3>三种视图</h3>
+          <p>卡片看封面、列表看信息密度、表格做横向对比。分类、标签、状态三重筛选，搜索即时生效。</p>
+        </div>
+        <div class="feature reveal">
+          <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h3>详情即预览</h3>
+          <p>产品详情页内嵌线上站点，边看边核对。遇到禁止嵌入的站点，自动提示并提供一键跳转。</p>
+        </div>
+        <div class="feature reveal">
+          <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2c.9-.9.9-2.4 0-3.3a2.3 2.3 0 0 0-3 .3Z"/><path d="M14.5 4.5C17 2 21 2 21 2s0 4-2.5 6.5L13 14l-3-3 4.5-6.5Z"/><path d="M9 11H5l2-4h4M13 15v4l4-2v-4"/></svg></div>
+          <h3>状态看板</h3>
+          <p>已上线、内测中、开发中、已归档四种状态，配上精选标记，一眼看清每个项目的进度。</p>
+        </div>
+        <div class="feature reveal">
+          <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/><path d="m3 8 9 5 9-5M12 21v-8"/></svg></div>
+          <h3>数据自持</h3>
+          <p>所有数据落在单个 JSON 文件里，没有云服务依赖。随时导出、随时迁移，也可以直接版本管理。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 使用方式 -->
+  <section class="block" id="flow" style="padding-top:0">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-tag">Workflow</div>
+        <h2 class="section-title">三步，从链接到档案</h2>
+        <p class="section-desc">不需要写一行配置，添加产品的过程就是粘贴两个地址。</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">STEP 01</span>
+          <h4>粘贴部署链接</h4>
+          <p>填入线上可访问的地址，点击「自动抓取」，站点标题、简介与图标自动回填。</p>
+          <span class="step-code">https://your-app.vercel.app</span>
+        </div>
+        <div class="step">
+          <span class="step-num">STEP 02</span>
+          <h4>补上代码仓库</h4>
+          <p>粘贴 GitHub 地址即可同步 Star、语言等信息；私有仓库先在设置里配置个人 Token。</p>
+          <span class="step-code">github.com/owner/repo</span>
+        </div>
+        <div class="step">
+          <span class="step-num">STEP 03</span>
+          <h4>分类与展示</h4>
+          <p>打上分类、标签与技术栈，选择视图。之后任何时候都能搜索到它，也能一键分享详情页。</p>
+          <span class="step-code">/product.html?id=p_xxxxxx</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 最近收录 -->
+  <section class="block" id="recent" style="padding-top:0">
+    <div class="container">
+      <div class="section-head reveal" style="display:flex;align-items:flex-end;justify-content:space-between;max-width:none;gap:20px;flex-wrap:wrap">
+        <div>
+          <div class="section-tag">Recently</div>
+          <h2 class="section-title" style="margin-bottom:0">最近收录</h2>
+        </div>
+        <a class="btn btn-sm" href="/app.html">查看全部 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="grid" id="recent-grid"></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="block" style="padding-top:0">
+    <div class="container">
+      <div class="cta-band reveal">
+        <h2>你的下一个作品，也该有个位置</h2>
+        <p>打开产品库，粘贴第一个部署链接。三十秒之后，你就有了一个像样的作品集。</p>
+        <a class="btn btn-primary btn-lg" href="/app.html?new=1">
+          开始添加
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="brand" style="gap:9px">
+      <span class="brand-mark" style="width:24px;height:24px;border-radius:7px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round" style="width:13px;height:13px"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5v-9Z"/></svg></span>
+      <p>Atlas · 产品管理器 — 数据存储在本地 JSON，无需注册。</p>
+    </div>
+    <div class="footer-links">
+      <a href="/app.html">产品库</a>
+      <a href="/api/export">导出数据</a>
+      <a href="/app.html?settings=1">仓库 Token</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/core.js"></script>
+<script src="/assets/landing.js"></script>
+</body>
+</html>
